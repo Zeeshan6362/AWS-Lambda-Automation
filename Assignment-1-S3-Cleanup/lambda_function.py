@@ -3,7 +3,7 @@ from datetime import datetime, timezone, timedelta
 
 s3 = boto3.client("s3")
 
-BUCKET_NAME = "YOUR_BUCKET_NAME"
+BUCKET_NAME = "zeeshan-s3-cleanup-demo"
 
 AGE_MINUTES = 30
 
