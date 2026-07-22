@@ -8,8 +8,8 @@ sns = boto3.client("sns")
 # SNS Topic ARN
 SNS_TOPIC_ARN = "arn:aws:sns:us-east-1:084032333279:DailyCostAlert"
 
-# Threshold (Use 0.01 for testing, change to 50.0 for production)
-THRESHOLD = 0.01
+# Threshold (Used 0.01 for testing, changed to 50.0 for production)
+THRESHOLD = 50 
 
 
 def lambda_handler(event, context):
