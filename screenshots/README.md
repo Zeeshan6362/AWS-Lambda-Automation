@@ -1,4 +1,4 @@
-# AWS Infrastructure Automation Suite (Lambda & Boto3)
+# AWS Automation using Lambda and Boto3
 
 An automated cloud governance and operations suite built using Python 3.12, AWS Lambda, Boto3, Amazon EventBridge, and Amazon SNS. 
 
@@ -24,7 +24,7 @@ AWS-Lambda-Automation/
 └── README.md                        # Master Documentation
 ```
 
-Task 1: Automated S3 Bucket Cleanup
+**Task 1: Automated S3 Bucket Cleanup**
 Overview & Objective
 Automates the detection and deletion of stale S3 bucket objects older than a specified threshold (e.g., 30 days).
 
@@ -37,7 +37,7 @@ Execution & Deletion: Identified matching objects and executed delete_object cal
 
 Verification: Validated object deletion traces directly inside AWS CloudWatch Logs.
 
-Task 2: Automated EBS Snapshot Creation and Lifecycle Retention
+**Task 2: Automated EBS Snapshot Creation and Lifecycle Retention**
 Overview & Objective
 Executes a dual-action backup workflow: creates a tagged EBS snapshot from a target volume and purges existing snapshots older than 30 days.
 
@@ -48,7 +48,7 @@ Retention Cleanup Loop: Queried account snapshots using describe_snapshots(Owner
 
 EventBridge Automation: Configured a recurring EventBridge schedule (rate(7 days)) to trigger the backup loop automatically.
 
-Task 3: Event-Driven EC2 Auto-Tagging on Launch
+**Task 3: Event-Driven EC2 Auto-Tagging on Launch**
 Overview & Objective
 A reactive automation that captures EC2 state-change events in real time and automatically applies operational metadata tags to newly launched instances.
 
@@ -61,7 +61,7 @@ Tag Application: Executed ec2.create_tags() to attach LaunchDate and Environment
 
 Live Verification: Launched a test t3.micro instance and verified that tags appeared on the EC2 Console within seconds of entering the running state.
 
-Task 4: Daily AWS Cost Alert Using Cost Explorer API and SNS
+**Task 4: Daily AWS Cost Alert Using Cost Explorer API and SNS**
 Overview & Objective
 Monitors Month-to-Date (MTD) AWS account spending via the Cost Explorer API and sends email alerts via Amazon SNS whenever spend exceeds a configured threshold.
 
@@ -94,7 +94,7 @@ Configured an EventBridge Schedule (rate(1 day)) to automate daily cost checks.
 
 Verified receipt of automated daily cost alert notification emails in the inbox.
 
-Verification Summary
+**Verification Summary**
 Task 1: Objects older than the threshold purged; verified via CloudWatch logs.
 
 Task 2: EBS snapshot created and tagged; retention script tested against snapshot timestamps.
