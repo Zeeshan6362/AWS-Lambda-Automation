@@ -1,3 +1,21 @@
+Task 1: Automated S3 Bucket Cleanup (Objects > 30 Days)
+Architectural Overview
+Automates the detection and purging of stale S3 objects older than 30 days. Uses the low-level Boto3 client paginator (list_objects_v2) to bypass the standard 1,000-object API limit and handles timezone-aware UTC timestamp comparisons.
+
+Phased Deployment Steps
+Phase 1: IAM Role Creation — Provision an execution role using the inline policy defined in task1-s3-cleanup/iam_policy.json (scoped strictly to s3:ListBucket and s3:DeleteObject).
+
+Phase 2: Lambda Deployment — Deploy task1-s3-cleanup/lambda_function.py under the Python 3.12 runtime.
+
+Phase 3: Trigger & Execution — Configure a schedule trigger via EventBridge or execute manual invocation.
+
+Live Deployment & Execution Verification
+Initial State: Target S3 bucket contains test files.
+
+Execution: Lambda scans LastModified attributes against datetime.now(timezone.utc) - timedelta(days=30).
+
+Verification: CloudWatch logs confirm affected keys; target stale objects vanish from the bucket console.
+
 
 Created S3 bucket and added test files:
 <img width="3274" height="2048" alt="image" src="https://github.com/user-attachments/assets/df6cf420-b8ab-4a09-9b52-e1bb5acd719c" />
