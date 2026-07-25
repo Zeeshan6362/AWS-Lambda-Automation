@@ -6,17 +6,21 @@ This repository contains four completed hands-on serverless automation tasks des
 
 ## Reproducible Repository Structure
 AWS-Lambda-Automation/
-├── task1-s3-cleanup/
+├── Assignment-1-s3-cleanup/
+|   ├── README.md
 │   └── lambda_function.py          # Boto3 S3 paginator & deletion logic
-├── task2-ebs-snapshot/
+├── Assignment-2-EBS-Snapshort/
+|   ├── README.md
 │   ├── lambda_function.py          # EBS snapshot creation & 30-day retention loop
-│   └── eventbridge_schedule.json   # Weekly schedule configuration
-├── task3-ec2-autotag/
+├── Assignment-3-EC2-AutoTag/
+|   ├── README.md
 │   ├── lambda_function.py          # Event-driven EC2 auto-tagging script
-│   └── event_pattern.json          # EventBridge rule pattern for EC2 running state
-├── task4-aws-cost-alert/
+├── Assignmwnt-4-cost-Alert/
+|   ├── README.md
 │   └── lambda_function.py          # Cost Explorer MTD query & SNS notification engine
-└── README.md                       # Master Documentation
+├── screenshots                     
+|   ├── README.md                       # Master Documentation
+│   └── Screenshot                    
 
 Task 1: Automated S3 Bucket Cleanup
 Overview & Objective
