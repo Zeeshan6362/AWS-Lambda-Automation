@@ -5,24 +5,24 @@ An automated cloud governance and operations suite built using Python 3.12, AWS 
 This repository contains four completed hands-on serverless automation tasks designed for resource cleanup, backup retention, event-driven tagging, and proactive cost alerting in AWS.
 
 ## Reproducible Repository Structure
-'''text
+
+```text
 AWS-Lambda-Automation/
 ├── Assignment-1-s3-cleanup/
-|   ├── README.md
-│   └── lambda_function.py          # Boto3 S3 paginator & deletion logic
+│   ├── README.md
+│   └── lambda_function.py           # Boto3 S3 paginator & deletion logic
 ├── Assignment-2-EBS-Snapshort/
-|   ├── README.md
-│   ├── lambda_function.py          # EBS snapshot creation & 30-day retention loop
+│   ├── README.md
+│   └── lambda_function.py           # EBS snapshot creation & 30-day retention loop
 ├── Assignment-3-EC2-AutoTag/
-|   ├── README.md
-│   ├── lambda_function.py          # Event-driven EC2 auto-tagging script
+│   ├── README.md
+│   └── lambda_function.py           # Event-driven EC2 auto-tagging script
 ├── Assignmwnt-4-cost-Alert/
-|   ├── README.md
-│   └── lambda_function.py          # Cost Explorer MTD query & SNS notification engine
-├── screenshots                     
-|   ├── README.md                       # Master Documentation
-│   └── Screenshot                    
-'''
+│   ├── README.md
+│   └── lambda_function.py           # Cost Explorer MTD query & SNS notification engine
+├── screenshots/
+└── README.md                        # Master Documentation
+```
 
 Task 1: Automated S3 Bucket Cleanup
 Overview & Objective
