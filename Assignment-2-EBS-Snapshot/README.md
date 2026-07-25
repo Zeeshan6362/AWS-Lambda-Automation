@@ -1,3 +1,19 @@
+Task 2: Automated EBS Snapshot Creation and Lifecycle Retention
+Architectural Overview
+Performs dual operations: creates a tagged EBS snapshot (CreatedBy=Lambda-Backup) from a target volume, and scans existing account snapshots to purge backups older than 30 days.
+
+Phased Deployment Steps
+Phase 1: IAM Configuration — Attach ec2:CreateSnapshot, ec2:DescribeSnapshots, ec2:DeleteSnapshot, and ec2:CreateTags scoped policy to the function role.
+
+Phase 2: Code Deployment — Deploy task2-ebs-snapshot/lambda_function.py. Set environment variable VOLUME_ID.
+
+Phase 3: EventBridge Scheduling — Link an EventBridge rule configured for weekly execution (rate(7 days)).
+
+Live Deployment & Execution Verification
+Creation Verification: Inspect EC2 Console -> Snapshots to confirm the newly minted snapshot ID and tags.
+
+Retention Verification: CloudWatch logs confirm deletion of older tagged snapshot IDs exceeding the retention threshold.
+
 
 Created EC2 Instance with default VPC and t3.micro
 <img width="3274" height="2048" alt="image" src="https://github.com/user-attachments/assets/a64d6f49-a6ed-4cc1-8287-e7700103c341" />
